@@ -1,0 +1,22 @@
+# .gqlgen.yml example
+#
+# Refer to https://gqlgen.com/config/
+# for detailed .gqlgen.yml documentation.
+
+struct_tag: json
+schema:
+- schemas\*.graphql
+exec:
+  filename: gqlgen\generated.go
+model:
+  filename: models\models_gen.go
+resolver:
+  filename: resolvers\resolver.go
+  type: Resolver
+models:
+  ID:
+    model:
+      - github.com/99designs/gqlgen/graphql.Int64
+  Int64:
+    model:
+      - github.com/99designs/gqlgen/graphql.Int64

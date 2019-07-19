@@ -1,0 +1,17 @@
+type Query {
+    users: [User!]
+    projects: [Project!]
+}
+
+type Mutation {
+    getJsApiSign(input: JsApiSignReq!): JsApiSignResp!
+ }
+
+
+
+
+
+
+
+
+

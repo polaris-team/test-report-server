@@ -1,0 +1,14 @@
+Server:
+  Port: 8282
+  Name: Nico
+Mysql:
+  Host: 127.0.0.1
+  Port: 3306
+  Usr: root
+  Pwd: root
+  Database: solopi-test-report
+Redis:
+  Host: 127.0.0.1
+  Port: 6379
+  Pwd: 
+  Database: 1

@@ -1,0 +1,12 @@
+input JsApiSignReq{
+    type: String!
+    url: String!
+    corpId: String!
+}
+
+type JsApiSignResp{
+    agentId: Int!
+    timeStamp: String!
+    noceStr: String!
+    signature: String!
+}
