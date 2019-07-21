@@ -1,9 +1,9 @@
 package mysql
 
 import (
+	"github.com/polaris-team/test-report-server/pkg/config"
+	"github.com/polaris-team/test-report-server/pkg/utils/json"
 	"testing"
-
-	"github.com/polaris-team/polaris-backend/polaris-common/core/utils/json"
 
 	"strconv"
 )

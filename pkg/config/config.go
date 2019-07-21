@@ -7,23 +7,25 @@ import (
 )
 
 var conf Config = Config{
-	Viper:    viper.New(),
-	Mysql:    nil,
-	Redis:    nil,
-	Mail:     nil,
-	Server:   nil,
-	DingTalk: nil,
+	Viper:      viper.New(),
+	Mysql:      nil,
+	Redis:      nil,
+	Mail:       nil,
+	Server:     nil,
+	DingTalk:   nil,
 	Parameters: nil,
+	OSS:        nil,
 }
 
 type Config struct {
-	Viper    *viper.Viper
-	Mysql    *MysqlConfig
-	Redis    *RedisConfig
-	Mail     *MailConfig
-	Server   *ServerConfig
-	DingTalk *DingTalkSDKConfig
+	Viper      *viper.Viper
+	Mysql      *MysqlConfig
+	Redis      *RedisConfig
+	Mail       *MailConfig
+	Server     *ServerConfig
+	DingTalk   *DingTalkSDKConfig
 	Parameters *map[string]*string
+	OSS        *OSSConfig
 }
 
 type MysqlConfig struct {
@@ -56,6 +58,13 @@ type ServerConfig struct {
 	Name string
 }
 
+type OSSConfig struct {
+	BucketName      string
+	EndPoint        string
+	AccessKeyId     string
+	AccessKeySecret string
+}
+
 type DingTalkSDKConfig struct {
 	SuiteKey    string
 	SuiteSecret string
@@ -81,21 +90,25 @@ func GetServerConfig() *ServerConfig {
 	return conf.Server
 }
 
+func GetOSSConfig() *OSSConfig {
+	return conf.OSS
+}
+
 func GetDingTalkSdkConfig() *DingTalkSDKConfig {
 	return conf.DingTalk
 }
 
-func GetParameters() *map[string]*string{
+func GetParameters() *map[string]*string {
 	return conf.Parameters
 }
 
-func GetParameter(key string) string{
+func GetParameter(key string) string {
 	key = strings.ToLower(key)
-	if conf.Parameters == nil{
+	if conf.Parameters == nil {
 		panic(errors.New("Parameters configuration is nil!"))
 	}
 	ps := *conf.Parameters
-	if ps[key] == nil{
+	if ps[key] == nil {
 		panic(errors.Errorf("Parameter %s Not configured!", key))
 	}
 	return *ps[key]

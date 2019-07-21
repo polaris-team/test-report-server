@@ -12,3 +12,8 @@ Redis:
   Port: 6379
   Pwd: 
   Database: 1
+OSS:
+  BucketName: solopi-report
+  EndPoint: http://oss-cn-shanghai.aliyuncs.com
+  AccessKeyId: 
+  AccessKeySecret: 
